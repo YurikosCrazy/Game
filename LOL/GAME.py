@@ -70,6 +70,7 @@ pad_one_y = 20
 pad_two_y = 20
 
 window.geometry('700x400+0+0')
+window.resizable(False, False)
 
 
 ball = canvas.create_oval(ball_x, ball_y, ball_x + 30, ball_y + 30, fill="white")
