@@ -24,16 +24,19 @@ def roll():
     canvas.coords(ball, ball_x, ball_y, ball_x + 30, ball_y + 30)
     window.after(40, roll)
 
-#def add_score:
- #   ball_x <=
-
-
+def update_score():
+    global score_one_player, score_two_player
+    if ball_x >= 700:
+        score_one_player += 1
+        window.itemconfig(player_one_text, text=score_one_player)
+    elif ball_x <= -10:
+        score_two_player += 1
+        window.itemconfig(player_two_text, text=score_two_player)
+    window.after(0, roll)
 
 def pad_move(event):
     pad_one_c = canvas.coords(pad_one)
     pad_two_c = canvas.coords(pad_two)
-
-
     if event.keysym == 'Down':
        if pad_one_c[1] > 0 and pad_one_c[3] <= 380:
            canvas.move(pad_one, 0, 25)
@@ -88,10 +91,6 @@ player_one_text = canvas.create_text(300, 50, text=score_one_player, font="Arial
 
 score_two_player = 0
 player_two_text = canvas.create_text(360, 50, text=score_two_player, font="Arial 20", fill="white")
-
-
-
-
 
 
 
